@@ -21,22 +21,35 @@ class Freesome(idaapi.plugin_t):
     def term(self):
         idaapi.msg("")
 
-
+    if __EA64__:
+        idaapi.load_and_run_plugin("windbg_user.p64", 0)
+        idaapi.load_and_run_plugin("armlinux_stub.p64", 0)
+        idaapi.load_and_run_plugin("gdb_user.p64", 0)
+        idaapi.load_and_run_plugin("linux_stub.p64", 0)
+        idaapi.load_and_run_plugin("mac_stub.p64", 0)
+        idaapi.load_and_run_plugin("win32_stub.p64", 0)
+        idaapi.load_and_run_plugin("win32_user.p64", 0)
+        idaapi.load_and_run_plugin("wince_stub.p64", 0)
+        idaapi.load_and_run_plugin("bdescr.p64", 0)
+        idaapi.load_and_run_plugin("epoc_user", 0)
+        idc.LoadDebugger("gdb", 1)
+        
 ##'lets give this baby some debuggers'''
-    idaapi.load_and_run_plugin("windbg_user.plw", 0)
-    idaapi.load_and_run_plugin("armlinux_stub.plw", 0)
-    idaapi.load_and_run_plugin("gdb_user.plw", 0)
-    idaapi.load_and_run_plugin("linux_stub.plw", 0)
-    idaapi.load_and_run_plugin("mac_stub.plw", 0)
-    idaapi.load_and_run_plugin("win32_stub.plw", 0)
-    idaapi.load_and_run_plugin("win32_user.plw", 0)
-    idaapi.load_and_run_plugin("wince_stub.plw", 0)
-    idaapi.load_and_run_plugin("bdescr.plw", 0)
-    idaapi.load_and_run_plugin("epoc_user", 0)
-    idc.LoadDebugger("gdb", 1)
+    else:
+        idaapi.load_and_run_plugin("windbg_user.plw", 0)
+        idaapi.load_and_run_plugin("armlinux_stub.plw", 0)
+        idaapi.load_and_run_plugin("gdb_user.plw", 0)
+        idaapi.load_and_run_plugin("linux_stub.plw", 0)
+        idaapi.load_and_run_plugin("mac_stub.plw", 0)
+        idaapi.load_and_run_plugin("win32_stub.plw", 0)
+        idaapi.load_and_run_plugin("win32_user.plw", 0)
+        idaapi.load_and_run_plugin("wince_stub.plw", 0)
+        idaapi.load_and_run_plugin("bdescr.plw", 0)
+        idaapi.load_and_run_plugin("epoc_user", 0)
+        idc.LoadDebugger("windbg", 1)
 
 	
 def PLUGIN_ENTRY():
-	return Freesome()
+    return Freesome()
 
 print "Finally We Are Free At Last"
