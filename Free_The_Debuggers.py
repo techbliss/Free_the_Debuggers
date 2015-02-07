@@ -31,8 +31,14 @@ class Freesome(idaapi.plugin_t):
         idaapi.load_and_run_plugin("win32_user.p64", 0)
         idaapi.load_and_run_plugin("wince_stub.p64", 0)
         idaapi.load_and_run_plugin("bdescr.p64", 0)
-        idaapi.load_and_run_plugin("epoc_user", 0)
-        idc.LoadDebugger("gdb", 1)
+        idaapi.load_and_run_plugin("epoc_user.p64", 0)
+        idaapi.load_and_run_plugin("bochs_user.p64", 0)
+        idaapi.load_and_run_plugin("mac_stub.p64", 0)
+        idaapi.load_and_run_plugin("replay_user.p64", 0)
+        idaapi.load_and_run_plugin("pin_user.p64", 0)
+        idaapi.load_and_run_plugin("dalvik_user.p64", 0)
+        idaapi.load_plugin("dalvik_user.plw")
+        #idc.LoadDebugger("gdb", 1)
         
 ##'lets give this baby some debuggers'''
     else:
@@ -45,8 +51,14 @@ class Freesome(idaapi.plugin_t):
         idaapi.load_and_run_plugin("win32_user.plw", 0)
         idaapi.load_and_run_plugin("wince_stub.plw", 0)
         idaapi.load_and_run_plugin("bdescr.plw", 0)
-        idaapi.load_and_run_plugin("epoc_user", 0)
-        idc.LoadDebugger("windbg", 1)
+        idaapi.load_and_run_plugin("epoc_user.plw", 0)
+        idaapi.load_and_run_plugin("bochs_user.plw", 0)
+        idaapi.load_and_run_plugin("mac_stub.plw", 0)
+        idaapi.load_and_run_plugin("replay_user.plw", 0)
+        idaapi.load_and_run_plugin("pin_user.plw", 0)
+        idaapi.load_and_run_plugin("dalvik_user.plw", 0)
+        idaapi.load_plugin("dalvik_user.plw")
+        #idc.LoadDebugger("windbg", 1)
 
 	
 def PLUGIN_ENTRY():
